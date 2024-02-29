@@ -2,7 +2,7 @@
 FROM node:18
 
 # Configure o diretório de trabalho dentro do contêiner
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copie o arquivo package.json e o arquivo package-lock.json (ou yarn.lock)
 COPY package*.json ./
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Comando para iniciar o aplicativo
-CMD [ "npm", "start" ]
+CMD [ "npm" ]
