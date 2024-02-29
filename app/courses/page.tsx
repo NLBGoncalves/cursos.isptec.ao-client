@@ -23,7 +23,7 @@ const SuspenseSearch = () => (
   </Suspense>
 );
 
-const Page = (props: Props) => {
+const Page = () => {
   const searchParams = useSearchParams();
   const search = searchParams?.get("title");
   const { data, isLoading } = useGetUsersAllCoursesQuery(undefined, {});
