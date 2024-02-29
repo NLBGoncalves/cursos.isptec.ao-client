@@ -13,7 +13,13 @@ const nextConfig = {
       experimental:{
         reactRoot: true,
         suppressHydrationWarning: true,
-      }
+      },
+}
+
+module.exports = {
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 }
 
 module.exports = nextConfig
