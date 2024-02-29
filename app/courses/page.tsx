@@ -18,7 +18,7 @@ function Search() {
 }
 
 const SuspenseSearch = () => (
-  <Suspense>
+  <Suspense fallback={<div>Loading...</div>}>
     <Search />
   </Suspense>
 );
