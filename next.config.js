@@ -10,10 +10,6 @@ const nextConfig = {
           port: '',
         },
       ],
-      experimental:{
-        reactRoot: true,
-        suppressHydrationWarning: true,
-      },
 }
 
 module.exports = nextConfig
