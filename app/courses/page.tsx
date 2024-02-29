@@ -3,6 +3,7 @@ import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi"
 import { useGetHeroDataQuery } from "@/redux/features/layout/layoutApi";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { Suspense } from 'react';
 import Loader from "../components/Loader/Loader";
 import Header from "../components/Header";
 import Heading from "../utils/Heading";
@@ -10,7 +11,17 @@ import { styles } from "../styles/style";
 import CourseCard from "../components/Course/CourseCard";
 import Footer from "../components/Footer";
 
-type Props = {};
+function Search() {
+  const searchParams = useSearchParams();
+
+  return <input className="hidden" placeholder="Search..." />;
+}
+
+const SuspenseSearch = () => (
+  <Suspense>
+    <Search />
+  </Suspense>
+);
 
 const Page = (props: Props) => {
   const searchParams = useSearchParams();
@@ -62,6 +73,7 @@ const Page = (props: Props) => {
             keywords="Cálculo, Álgebra Linear, English, Quimica, Fisica etc. ..."
             />
             <br />
+            <SuspenseSearch />
             <div className="w-full flex items-center flex-wrap">
               <div
                 className={`h-[35px] ${
