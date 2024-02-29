@@ -70,7 +70,6 @@ const CourseDetails = ({
      socketId.emit("notification", {
         title: "New Order",
         message: `You have a new order from ${data.name}`,
-        userId: user._id,
      });
      redirect(`/course-access/${data._id}`);
     }
