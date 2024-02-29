@@ -3,7 +3,6 @@ import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi"
 import { useGetHeroDataQuery } from "@/redux/features/layout/layoutApi";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { Suspense } from 'react';
 import Loader from "../components/Loader/Loader";
 import Header from "../components/Header";
 import Heading from "../utils/Heading";
@@ -11,19 +10,9 @@ import { styles } from "../styles/style";
 import CourseCard from "../components/Course/CourseCard";
 import Footer from "../components/Footer";
 
-function Search() {
-  const searchParams = useSearchParams();
+type Props = {};
 
-  return <input className="hidden" placeholder="Search..." />;
-}
-
-const SuspenseSearch = () => (
-  <Suspense fallback={<div>Loading...</div>}>
-    <Search />
-  </Suspense>
-);
-
-const Page = () => {
+const Page = (props: Props) => {
   const searchParams = useSearchParams();
   const search = searchParams?.get("title");
   const { data, isLoading } = useGetUsersAllCoursesQuery(undefined, {});
@@ -73,7 +62,6 @@ const Page = () => {
             keywords="Cálculo, Álgebra Linear, English, Quimica, Fisica etc. ..."
             />
             <br />
-            <SuspenseSearch />
             <div className="w-full flex items-center flex-wrap">
               <div
                 className={`h-[35px] ${
