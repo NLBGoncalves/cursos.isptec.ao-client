@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "test": "jest",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -72,7 +71,6 @@
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
-    "@types/json-schema": "^7.0.15",
-    "eslint": "^8.57.0"
+    "@types/json-schema": "^7.0.15"
   }
 }
