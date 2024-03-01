@@ -29,6 +29,7 @@ const Profile: FC<Props> = ({ user }) => {
   const logOutHandler = async () => {
     setLogout(true);
     await signOut();
+    redirect("https://cursos.isptec.ao/");
   };
 
   if (typeof window !== "undefined") {
