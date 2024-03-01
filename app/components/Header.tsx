@@ -118,7 +118,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                     alt=""
                     width={30}
                     height={30}
-                    className="w-[30px] h-[30px] rounded-full cursor-pointer"
+                    className="w-[30px] h-[30px] hidden 800px:block rounded-full cursor-pointer"
                     style={{border: activeItem === 5 ? "2px solid #ffc107" : "none"}}
                   />
                 </Link>
@@ -142,28 +142,39 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
           >
             <div className="w-[70%] fixed z-[999999999] h-screen bg-white dark:bg-slate-900 dark:bg-opacity-90 top-0 right-0">
               <NavItems activeItem={activeItem} isMobile={true} />
-              {userData?.user ? (
-                <Link href={"/profile"}>
-                  <Image
-                    src={userData?.user.avatar ? userData.user.avatar.url : avatar}
-                    alt=""
-                    width={30}
-                    height={30}
-                    className="w-[30px] h-[30px] rounded-full ml-[20px] cursor-pointer"
-                    style={{border: activeItem === 5 ? "2px solid #37a39a" : "none"}}
-                  />
-                </Link>
-              ) : (
-                <HiOutlineUserCircle
-                  size={25}
-                  className="cursor-pointer dark:text-white text-black"
-                  onClick={() => setOpen(true)}
-                />
-              )}
+              <div className="w-full flex items-center">
+                <div>
+                  {userData?.user ? (
+                    <Link href={"/profile"}>
+                      <Image
+                        src={userData?.user.avatar ? userData.user.avatar.url : avatar}
+                        alt=""
+                        width={30}
+                        height={30}
+                        className="w-[30px] h-[30px] rounded-full ml-[20px] cursor-pointer"
+                        style={{border: activeItem === 5 ? "2px solid #ffc107" : "none"}}
+                      />
+                    </Link>
+                  ) : (
+                    <HiOutlineUserCircle
+                      size={25}
+                      className="cursor-pointer dark:text-white text-black ml-5 my-2"
+                      onClick={() => setOpen(true)}
+                    />
+                  )}
+                </div>
+                <div>
+                {userData?.user ? (
+                  <Link style={{color: activeItem === 5 ? "#ffc107" : "none"}} href="/profile" className="cursor-pointer text-[18px] px-6 font-Poppins font-[400] dark:text-white text-black">Perfil</Link>
+                ) : (
+                  <p onClick={() => setOpen(true)} className="cursor-pointer text-[18px] px-6 font-Poppins font-[400] dark:text-white text-black">Perfil</p>
+                )}
+                </div>
+              </div>
               <br />
               <br />
               <p className="text-[16px] px-2 pl-5 text-black dark:text-white">
-              Copyright © 2024 CURSOS.<span className="text-gradient1">ISPTEC</span>.AO
+                Copyright © 2024 CURSOS.<span className="text-gradient1">ISPTEC</span>.AO
               </p>
             </div>
           </div>
