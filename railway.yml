@@ -1,0 +1,26 @@
+# Nome do projeto no Railway
+name: cursos.isptec.ao-client
+
+# Versão do Node.js
+services:
+  default:
+    # Versão do Node.js que o Railway usará para construir e executar seu aplicativo
+    image: "railway/node:18"
+
+# Variáveis de ambiente
+env:
+  # Defina suas variáveis de ambiente aqui
+  NODE_ENV: production
+  # Outras variáveis de ambiente necessárias
+
+# Comandos de deploy
+build:
+  # Comando para instalar dependências e compilar seu projeto
+  steps:
+    - npm install
+    - npm run build
+
+# Comando para iniciar o servidor
+start:
+  # Comando para iniciar o servidor Next.js após o deploy
+  web: npm run dev
