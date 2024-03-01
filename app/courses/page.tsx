@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
 import { useGetHeroDataQuery } from "@/redux/features/layout/layoutApi";
 import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader";
 import Header from "../components/Header";
 import Heading from "../utils/Heading";
@@ -10,44 +10,40 @@ import { styles } from "../styles/style";
 import CourseCard from "../components/Course/CourseCard";
 import Footer from "../components/Footer";
 
-// Define o tipo dos dados dos cursos
-interface Course {
-  id: number;
-  name: string;
-  categories: string;
-  // Adicione outros campos conforme necessário
-}
+type Props = {};
 
-const Page = () => {
+const Page = (props: Props) => {
   const searchParams = useSearchParams();
   const search = searchParams?.get("title");
   const { data, isLoading } = useGetUsersAllCoursesQuery(undefined, {});
   const { data: categoriesData } = useGetHeroDataQuery("Categories", {});
   const [route, setRoute] = useState("Login");
   const [open, setOpen] = useState(false);
-  const [courses, setCourses] = useState<Course[]>([]); // Defina o tipo do estado dos cursos
-  const [category, setCategory] = useState<string>("All");
+  const [courses, setcourses] = useState([]);
+  const [category, setCategory] = useState("All");
 
   useEffect(() => {
-    // Função para filtrar os cursos com base na categoria e na pesquisa
-    const filterCourses = () => {
-      if (category === "All") {
-        setCourses(data?.courses || []);
-      } else {
-        setCourses(
-          data?.courses.filter((item: Course) => item.categories === category) || []
-        );
-      }
-    };
-
-    // Atualize os cursos quando os dados, a categoria ou a pesquisa mudarem
-    filterCourses();
+    if (category === "All") {
+      setcourses(data?.courses);
+    }
+    if (category !== "All") {
+      setcourses(
+        data?.courses.filter((item: any) => item.categories === category)
+      );
+    }
+    if (search) {
+      setcourses(
+        data?.courses.filter((item: any) =>
+          item.name.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }
   }, [data, category, search]);
 
-  const categories = categoriesData?.layout.categories;
+  const categories = categoriesData?.layout?.categories;
 
   return (
-    <>
+    <div>
       {isLoading ? (
         <Loader />
       ) : (
@@ -60,10 +56,10 @@ const Page = () => {
             activeItem={1}
           />
           <div className="w-[95%] 800px:w-[85%] m-auto min-h-[70vh]">
-            <Heading
-              title={"Todos os cursos - cursos.isptec.ao"}
-              description={"A plataforma CURSOS.ISPTEC.AO oferece aos alunos uma oportunidade de aprender e receber suporte dos professores."}
-              keywords={"Cálculo, Álgebra Linear, Inglês, Química, Física, etc."}
+          <Heading
+            title="cursos.isptec.ao"
+            description="A plataforma CURSOS.ISPTEC.AO oferece aos alunos uma oportunidade de aprender e receber suporte dos professores."
+            keywords="Cálculo, Álgebra Linear, English, Quimica, Fisica etc. ..."
             />
             <br />
             <div className="w-full flex items-center flex-wrap">
@@ -92,7 +88,7 @@ const Page = () => {
                 ))}
             </div>
             {
-                courses.length === 0 && (
+                courses && courses.length === 0 && (
                     <p className={`${styles.label} justify-center min-h-[50vh] flex items-center`}>
                     {search ? "Nenhum curso encontrado!" : "Nenhum curso encontrado nesta categoria. Por favor, tente outro!"}
                   </p>
@@ -101,15 +97,16 @@ const Page = () => {
             <br />
             <br />
             <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-4 1500px:gap-[35px] mb-12 border-0">
-              {courses.map((item: Course, index: number) => (
-                <CourseCard item={item} key={index} />
-              ))}
+              {courses &&
+                courses.map((item: any, index: number) => (
+                  <CourseCard item={item} key={index} />
+                ))}
             </div>
           </div>
           <Footer />
         </>
       )}
-    </>
+    </div>
   );
 };
 
