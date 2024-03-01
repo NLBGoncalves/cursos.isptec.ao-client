@@ -40,7 +40,7 @@ const Page = (props: Props) => {
     }
   }, [data, category, search]);
 
-  const categories = categoriesData?.layout.categories;
+  const categories = categoriesData?.layout?.categories;
 
   return (
     <div>
@@ -56,22 +56,20 @@ const Page = (props: Props) => {
             activeItem={1}
           />
           <div className="w-[95%] 800px:w-[85%] m-auto min-h-[70vh]">
-            <Heading
-              title={"All courses - Elearning"}
-              description={"Elearning is a programming community."}
-              keywords={
-                "programming community, coding skills, expert insights, collaboration, growth"
-              }
+          <Heading
+            title="cursos.isptec.ao"
+            description="A plataforma CURSOS.ISPTEC.AO oferece aos alunos uma oportunidade de aprender e receber suporte dos professores."
+            keywords="Cálculo, Álgebra Linear, English, Quimica, Fisica etc. ..."
             />
             <br />
             <div className="w-full flex items-center flex-wrap">
               <div
                 className={`h-[35px] ${
-                  category === "All" ? "bg-[crimson]" : "bg-[#5050cb]"
+                  category === "All" ? "bg-[#ffc107]" : "bg-[#5050cb]"
                 } m-3 px-3 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`}
                 onClick={() => setCategory("All")}
               >
-                All
+                Todos
               </div>
               {categories &&
                 categories.map((item: any, index: number) => (
@@ -79,7 +77,7 @@ const Page = (props: Props) => {
                     <div
                       className={`h-[35px] ${
                         category === item.title
-                          ? "bg-[crimson]"
+                          ? "bg-[#ffc107]"
                           : "bg-[#5050cb]"
                       } m-3 px-3 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`}
                       onClick={() => setCategory(item.title)}
@@ -92,7 +90,7 @@ const Page = (props: Props) => {
             {
                 courses && courses.length === 0 && (
                     <p className={`${styles.label} justify-center min-h-[50vh] flex items-center`}>
-                    {search ? "No courses found!" : "No courses found in this category. Please try another one!"}
+                    {search ? "Nenhum curso encontrado!" : "Nenhum curso encontrado nesta categoria. Por favor, tente outro!"}
                   </p>
                 )
             }
