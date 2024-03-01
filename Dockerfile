@@ -7,8 +7,11 @@ WORKDIR /app
 # Copie o arquivo package.json e o arquivo package-lock.json (ou yarn.lock)
 COPY package*.json ./
 
-# Instale as dependências do projeto
-RUN npm install --legacy-peer-deps
+# Instale as dependências
+RUN npm install
+
+# Execute o comando de construção
+RUN npm run build
 
 # Copie o restante do código-fonte para o diretório de trabalho
 COPY . .

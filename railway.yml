@@ -13,13 +13,5 @@ env:
   NODE_ENV: production
   # Outras variáveis de ambiente necessárias
 
-# Comandos de deploy
-build:
-  # Comando para instalar dependências e compilar seu projeto
-  steps:
-    - npm install
 
-# Comando para iniciar o servidor
-start:
-  # Comando para iniciar o servidor Next.js após o deploy
-  web: npm run dev
+
