@@ -17,7 +17,7 @@ const Page: FC<Props> = (props) => {
   const [route, setRoute] = useState("Login");
 
   return (
-    <div>
+    <>
       <Heading
         title="cursos.isptec.ao"
         description="A plataforma CURSOS.ISPTEC.AO oferece aos alunos uma oportunidade de aprender e receber suporte dos professores."
@@ -36,7 +36,7 @@ const Page: FC<Props> = (props) => {
       <Reviews />
       <FAQ />
       <Footer />
-    </div>
+    </>
   );
 };
 
