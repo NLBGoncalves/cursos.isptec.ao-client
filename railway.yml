@@ -18,7 +18,6 @@ build:
   # Comando para instalar dependências e compilar seu projeto
   steps:
     - npm install
-    - npm run build
 
 # Comando para iniciar o servidor
 start:
