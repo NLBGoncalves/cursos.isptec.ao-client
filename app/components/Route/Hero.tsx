@@ -18,7 +18,7 @@ const Hero: FC<Props> = (props) => {
    if(search === ""){
     return
    }else{
-    router.push(`/courses?title=${search}`);
+    router.push(`/cursos?title=${search}`);
    }
   }
 
@@ -85,7 +85,7 @@ const Hero: FC<Props> = (props) => {
           <p className="font-Josefin dark:text-[#edfff4] text-[#000000b3] 1000px:pl-3 text-[18px] font-[600]">
             Mais de 2 mil alunos já confiaram em nós.{" "}
             <Link
-              href="/courses"
+              href="/cursos"
               className="dark:text-[#ffc107] text-[#ffc107]"
             >
               Ver cursos

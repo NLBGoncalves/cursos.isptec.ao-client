@@ -49,7 +49,7 @@ const Footer = (props: Props) => {
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="/courses"
+                  href="/cursos"
                   className="text-base text-slate-600 hover:text-black dark:text-gray-300 dark:hover:text-white"
                 >
                   Cursos
