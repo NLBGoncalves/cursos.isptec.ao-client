@@ -125,7 +125,7 @@ const Footer = (props: Props) => {
             </p>
          
             <a href="mailto:geral@cursos.isptec.ao" className="text-base text-slate-600 hover:text-black dark:text-gray-300 dark:hover:text-white  pb-2">
-              Envie-nos um e-mail: geral@cursos.isptec.ao
+              Envie-nos um e-mail: geral@isptec.ao
             </a>
             
           </div>
