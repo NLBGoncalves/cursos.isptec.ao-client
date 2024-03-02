@@ -21,7 +21,7 @@ const Page: FC<Props> = (props) => {
       <Heading
         title="cursos.isptec.ao"
         description="A plataforma CURSOS.ISPTEC.AO oferece aos alunos uma oportunidade de aprender e receber suporte dos professores."
-        keywords="Cálculo, Álgebra Linear, English, Quimica, Informatica, Fisica etc. ..."
+        keywords="Cálculo, Álgebra Linear, English, Quimica, Fisica etc. ..."
       />
       <Header
         open={open}
