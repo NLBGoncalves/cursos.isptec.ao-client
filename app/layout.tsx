@@ -32,6 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt" suppressHydrationWarning={true}>
+      <head>
+        <meta name="google-site-verification" content="-ISV5fmtDhtxJ0ZILQcBvC-SalgfkgqXoNt-a1o5Z-M" />
+      </head>
       <body
         className={`${poppins.variable} ${josefin.variable} !bg-white bg-no-repeat dark:bg-gradient-to-b dark:from-gray-900 dark:to-black duration-300`}
       >
