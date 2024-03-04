@@ -59,7 +59,7 @@ const Page = (props: Props) => {
           <Heading
             title={"cursos.isptec.ao"}
             description={"A plataforma CURSOS.ISPTEC.AO oferece aos alunos uma oportunidade de aprender e receber suporte dos professores."}
-            keywords={"Cálculo, Álgebra Linear, English, Quimica, Fisica etc. ..."}
+            keywords={"Cálculo, Álgebra Linear, English, Fisica etc. ..."}
             />
             <br />
             <div className="w-full flex items-center flex-wrap">
